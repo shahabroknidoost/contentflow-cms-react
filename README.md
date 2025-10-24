@@ -7,7 +7,8 @@
 [![React](https://img.shields.io/badge/React-19.1-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Accessibility](https://img.shields.io/badge/Lighthouse-100%2F100-success?style=for-the-badge&logo=lighthouse&logoColor=white)](https://developer.chrome.com/docs/lighthouse)
-[![Tests](https://img.shields.io/badge/Tests-20%20Passing-success?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-10%20Tests-success?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev)
+[![Cypress](https://img.shields.io/badge/Cypress-10%20Tests-success?style=for-the-badge&logo=cypress&logoColor=white)](https://www.cypress.io)
 
 [🚀 Live Demo](https://contentflow-cms-react.vercel.app/) • [📖 Documentation]() • [🐛 Report Bug](https://github.com/shahabroknidoost/contentflow-cms-react/issues) • [✨ Request Feature](https://github.com/shahabroknidoost/contentflow-cms-react/issues)
 
