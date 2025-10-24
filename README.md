@@ -216,8 +216,7 @@ npm run cypress:run
 
 1. **Clone the repository**
 ```bash
-   git clone https://github.com/yourusername/contentflow-cms-react.git
-   cd contentflow-cms-react
+   git clone https://github.com/shahabroknidoost/contentflow-cms-react.git
 ```
 
 2. **Install dependencies**
