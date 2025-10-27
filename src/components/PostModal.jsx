@@ -120,12 +120,19 @@ function PostModal({ post, onSave, onClose }) {
                 value={categoryOptions.find(opt => opt.value === formData.category)}
                 onChange={(selected) => setFormData(prev => ({ ...prev, category: selected.value }))}
                 isSearchable={false}
+                maxMenuHeight={120}
+                menuPosition="fixed"
                 styles={{
                   control: (base) => ({
                     ...base,
                     minHeight: '42px',
                     borderColor: '#d1d5db',
                     '&:hover': { borderColor: '#d1d5db' }
+                  }),
+                  menu: (base)=> ({
+                    ...base,
+                    borderRadius: '8px',
+                    overflow: 'hidden'
                   })
                 }}
               />
@@ -139,14 +146,21 @@ function PostModal({ post, onSave, onClose }) {
                 value={statusOptions.find(opt => opt.value === formData.status)}
                 onChange={(selected) => setFormData(prev => ({ ...prev, status: selected.value }))}
                 isSearchable={false}
+                maxMenuHeight={120}
+                menuPosition="fixed"
                 styles={{
                   control: (base) => ({
                     ...base,
                     minHeight: '42px',
                     borderColor: '#d1d5db',
                     '&:hover': { borderColor: '#d1d5db' }
-                  })
-                }}
+                  }),
+                menu: (base)=> ({
+                  ...base,
+                  borderRadius: '8px',
+                  overflow:  'hidden'
+                })
+               }}
               />
             </div>
           </div>
