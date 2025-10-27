@@ -759,13 +759,4 @@ button.btn.btn-secondary.pagination-arrow:not(:disabled):hover {
     .nav-tabs {
         overflow-x: auto;
     }
-    .modal-content {
-        width: 95vw;
-        max-width: 95vw;
-        margin: 20px auto;
-    }
-    
-    .modal {
-        padding: 10px;
-    }
 }
