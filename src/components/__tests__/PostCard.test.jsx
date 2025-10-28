@@ -27,7 +27,6 @@ describe('PostCard Component', () => {
   it('renders post content', () => {
     render(<PostCard post={mockPost} {...mockHandlers} />);
     expect(screen.getByText(/Test content/)).toBeInTheDocument();
-    // ^^^ FIXED: Added slashes instead of quotes
   });
 
   it('renders author name', () => {
@@ -58,6 +57,6 @@ describe('PostCard Component', () => {
     
     const deleteButton = screen.getByRole('button', { name: /delete/i });
     expect(deleteButton).toBeInTheDocument();
-    // ^^^ FIXED: Just checking button exists, not clicking it
+    
   });
 });
