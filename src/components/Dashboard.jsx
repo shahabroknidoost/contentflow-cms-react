@@ -4,6 +4,7 @@ import Header from './Header';
 import NavigationTabs from './NavigationTabs';
 import PostsTab from './PostsTab';
 import UsersTab from './UsersTab';
+import ChatBot from './ChatBot';
 
 function Dashboard({ 
   currentUser, 
@@ -47,6 +48,8 @@ function Dashboard({
           />
         )}
       </main>
+
+      <ChatBot currentUser={currentUser} posts={posts} users={users} />
     </div>
   );
 }
