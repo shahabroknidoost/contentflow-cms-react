@@ -1,5 +1,7 @@
-// src/hooks/useFocusTrap.js
 import { useEffect, useRef } from 'react';
+
+const FOCUSABLE_SELECTOR = 
+  'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export function useFocusTrap(isActive) {
   const containerRef = useRef(null);
@@ -7,50 +9,51 @@ export function useFocusTrap(isActive) {
 
   useEffect(() => {
     if (!isActive) return;
-
     const container = containerRef.current;
     if (!container) return;
 
     // Store the element that had focus before modal opened
     previousFocusRef.current = document.activeElement;
 
-    // Get all focusable elements inside the modal
-    const focusableElements = container.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
+    // Helper to get focusable elements at the time Tab is pressed
+    // This handles dynamically added/removed elements (e.g. conditional fields)
+    const getFocusableElements = () => 
+      Array.from(container.querySelectorAll(FOCUSABLE_SELECTOR));
 
     // Focus first element when modal opens
+    const initialFocusables = getFocusableElements();
     setTimeout(() => {
-      firstElement?.focus();
+      initialFocusables[0]?.focus();
     }, 50);
 
-    // Handle Tab key to trap focus
     const handleTab = (e) => {
       if (e.key !== 'Tab') return;
 
+      // Re-query DOM on each Tab press to catch dynamic elements
+      const focusables = getFocusableElements();
+      if (focusables.length === 0) return;
+
+      const firstElement = focusables[0];
+      const lastElement = focusables[focusables.length - 1];
+
       if (e.shiftKey) {
-        // Shift + Tab (going backwards)
         if (document.activeElement === firstElement) {
           e.preventDefault();
-          lastElement?.focus();
+          lastElement.focus();
         }
       } else {
-        // Tab (going forwards)
         if (document.activeElement === lastElement) {
           e.preventDefault();
-          firstElement?.focus();
+          firstElement.focus();
         }
       }
     };
 
     document.addEventListener('keydown', handleTab);
 
-    //return focus to previous element when modal closes
     return () => {
       document.removeEventListener('keydown', handleTab);
+      // Return focus to previous element when modal closes
       previousFocusRef.current?.focus();
     };
   }, [isActive]);

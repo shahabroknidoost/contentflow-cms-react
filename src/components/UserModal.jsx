@@ -56,7 +56,7 @@ function UserModal({ user, users, onSave, onClose }) {
     
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!formData.email.includes('@') || !formData.email.includes('.')) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
     
@@ -175,6 +175,7 @@ function UserModal({ user, users, onSave, onClose }) {
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
+                data-testid="toggle-password"
               >
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
