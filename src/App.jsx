@@ -135,23 +135,25 @@ function App() {
           Skip to main content
         </a>
       )}
-
-      {!currentUser ? (
-        <LoginScreen onLogin={handleLogin} />
-      ) : (
-        <Dashboard
-          currentUser={currentUser}
-          posts={posts}
-          users={users}
-          onLogout={handleLogout}
-          onCreatePost={handleCreatePost}
-          onUpdatePost={handleUpdatePost}
-          onDeletePost={handleDeletePost}
-          onCreateUser={handleCreateUser}
-          onUpdateUser={handleUpdateUser}
-          onDeleteUser={handleDeleteUser}
-        />
-      )}
+  
+      <main id="main-content">
+        {!currentUser ? (
+          <LoginScreen onLogin={handleLogin} />
+        ) : (
+          <Dashboard
+            currentUser={currentUser}
+            posts={posts}
+            users={users}
+            onLogout={handleLogout}
+            onCreatePost={handleCreatePost}
+            onUpdatePost={handleUpdatePost}
+            onDeletePost={handleDeletePost}
+            onCreateUser={handleCreateUser}
+            onUpdateUser={handleUpdateUser}
+            onDeleteUser={handleDeleteUser}
+          />
+        )}
+      </main>
     </div>
   );
 }
